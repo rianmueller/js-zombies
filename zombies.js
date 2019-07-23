@@ -274,6 +274,17 @@ class Player {
    * @param {Item/Weapon/Food} item   The item to use.
    */
 
+  useItem(item) {
+    if (this._pack.indexOf(item) > -1) {
+      if (item instanceof Weapon) {
+        this.equip(item);
+      }
+      if (item instanceof Food) {
+        this.eat(item);
+      }
+    }
+  }
+
   /**
    * Player Class Method => equippedWith()
    * -----------------------------
