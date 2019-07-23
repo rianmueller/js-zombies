@@ -100,12 +100,30 @@ class Player {
     this.speed = speed;
     this.isAlive = true;
     this.equipped = false;
-    this.getPack = function() {
-      return pack;
-    };
-    this.getMaxHealth = function() {
-      return maxHealth;
-    };
+    this._pack = [];
+    this._maxHealth = health;
+  }
+
+  getPack() {
+    return this._pack;
+  }
+
+  getMaxHealth() {
+    return this._maxHealth;
+  }
+
+  takeItem(item) {
+    console.log(this._pack);
+    if (this._pack.length < 3) {
+      this._pack.push(item);
+    }
+  }
+
+  discardItem(item) {
+    // let index = this._pack.indexOf(item);
+    this._pack.splice(this._pack.indexOf(item), 1);
+    console.log(this._pack);
+    return true;
   }
 }
 
