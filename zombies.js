@@ -376,14 +376,12 @@ Player.prototype.equippedWith = function() {
  * @property {boolean} isAlive      Default value should be `true`.
  */
 
-class Zombie {
-  constructor(health, strength, speed) {
-    this.health = health;
-    this.strength = strength;
-    this.speed = speed;
-    this._maxHealth = health;
-    this.isAlive = true;
-  }
+function Zombie(health, strength, speed) {
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  this._maxHealth = health;
+  this.isAlive = true;
 }
 
 /**
@@ -406,11 +404,11 @@ class Zombie {
  * -----------------------------
  */
 
-class FastZombie extends Zombie {
-  constructor(health, strength, speed) {
-    super(health, strength, speed);
-  }
+function FastZombie(health, strength, speed) {
+  Zombie.call(this, health, strength, speed);
 }
+
+FastZombie.prototype = Object.create(Zombie.prototype);
 
 /**
  * Class => StrongZombie(health, strength, speed)
@@ -432,11 +430,11 @@ class FastZombie extends Zombie {
  * -----------------------------
  */
 
-class StrongZombie extends Zombie {
-  constructor(health, strength, speed) {
-    super(health, strength, speed);
-  }
+function StrongZombie(health, strength, speed) {
+  Zombie.call(this, health, strength, speed);
 }
+
+StrongZombie.prototype = Object.create(Zombie.prototype);
 
 /**
  * Class => RangedZombie(health, strength, speed)
@@ -458,11 +456,11 @@ class StrongZombie extends Zombie {
  * -----------------------------
  */
 
-class RangedZombie extends Zombie {
-  constructor(health, strength, speed) {
-    super(health, strength, speed);
-  }
+function RangedZombie(health, strength, speed) {
+  Zombie.call(this, health, strength, speed);
 }
+
+RangedZombie.prototype = Object.create(Zombie.prototype);
 
 /**
  * Class => ExplodingZombie(health, strength, speed)
@@ -484,11 +482,11 @@ class RangedZombie extends Zombie {
  * -----------------------------
  */
 
-class ExplodingZombie extends Zombie {
-  constructor(health, strength, speed) {
-    super(health, strength, speed);
-  }
+function ExplodingZombie(health, strength, speed) {
+  Zombie.call(this, health, strength, speed);
 }
+
+ExplodingZombie.prototype = Object.create(Zombie.prototype);
 
 /**
  * Sample run.
