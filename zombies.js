@@ -8,10 +8,8 @@
  * @property {string} name
  */
 
-class Item {
-  constructor(name) {
-    this.name = name;
-  }
+function Item(name) {
+  this.name = name;
 }
 
 /**
@@ -35,12 +33,12 @@ class Item {
  * -----------------------------
  */
 
-class Weapon extends Item {
-  constructor(name, damage) {
-    super(name);
-    this.damage = damage;
-  }
+function Weapon(name, damage) {
+  Item.call(this, name, damage);
+  this.damage = damage;
 }
+
+Weapon.prototype = Object.create(Item.prototype);
 
 /**
  * Class => Food(name, energy)
@@ -63,12 +61,12 @@ class Weapon extends Item {
  * -----------------------------
  */
 
-class Food extends Item {
-  constructor(name, energy) {
-    super(name);
-    this.energy = energy;
-  }
+function Food(name, energy) {
+  Item.call(this, name, energy);
+  this.energy = energy;
 }
+
+Food.prototype = Object.create(Item.prototype);
 
 /**
  * Class => Player(name, health, strength, speed)
